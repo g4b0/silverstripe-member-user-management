@@ -1,0 +1,9 @@
+---
+Name: zk-member-user-management
+---
+Member:
+  extensions:
+    - ZkMemberUser
+Group:
+  extensions:
+    - ZkMemberGroup
