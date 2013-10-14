@@ -1,5 +1,5 @@
 {
-    "name": "zirak/silverstripe-member-user-management",
+    "name": "zirak/member-user-management",
     "description": "Add non-admin users the ability to manage users through security section",
     "type": "silverstripe-module",
     "keywords": ["silverstripe", "permissions", "security"],
