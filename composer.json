@@ -1,0 +1,14 @@
+{
+    "name": "zirak/silverstripe-member-user-management",
+    "description": "Add non-admin users the ability to manage users through security section",
+    "type": "silverstripe-module",
+    "keywords": ["silverstripe", "permissions", "security"],
+    "license": "GPL-2",
+    "authors": [{
+        "name": "Gabriele Brosulo - Zirak",
+        "email": "gabriele.brosulo@zirak.it"
+    }],
+    "require": {
+        "silverstripe/framework": "~3.1"
+    }
+}
