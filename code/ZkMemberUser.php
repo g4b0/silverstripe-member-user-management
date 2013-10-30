@@ -34,6 +34,9 @@ class ZkMemberUser extends DataExtension {
 	}
 
 	public function canEdit($member) {
+		if ($this->owner->ID == Member::currentUserID()) {
+			return true;
+		}
 		return $this->isAdmin($member);
 	}
 
