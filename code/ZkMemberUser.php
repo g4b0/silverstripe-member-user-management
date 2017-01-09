@@ -46,11 +46,15 @@ class ZkMemberUser extends DataExtension
 
     public function canView($member)
     {
+        if ($this->owner->ID == Member::currentUserID()) {
+            return true;
+        }
         return $this->isAdmin($member);
     }
-
+  
     public function canDelete($member)
     {
         return $this->isAdmin($member);
     }
+
 }
