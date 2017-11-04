@@ -20,7 +20,7 @@
   "autoload": {
     "psr-4": {
       "Zirak\\MemberUserManagement\\": "src/",
-      "Zirak\\MemberUserManagement\\tests": "tests/"
+      "Zirak\\MemberUserManagement\\tests\\": "tests/"
     }
   },
   "minimum-stability": "dev",
