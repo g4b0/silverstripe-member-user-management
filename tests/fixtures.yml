@@ -1,0 +1,18 @@
+SilverStripe\Security\Group:
+  manageusers:
+    Title: 'Users Manager'
+    Code: 'users-manager'
+SilverStripe\Security\Member:
+  nopermission:
+    FirstName: No
+    Surname: Permission
+    Email: nopermission@test.com
+  nopermission2:
+    FirstName: No
+    Surname: Permission 2
+    Email: nopermission2@test.com
+  permission:
+    FirstName: Has
+    Surname: Permission
+    Email: permission@test.com
+    Groups: =>SilverStripe\Security\Group.manageusers

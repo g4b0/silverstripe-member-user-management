@@ -3,6 +3,7 @@
 namespace Zirak\MemberUserManagement\Extension;
 
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\Security\Member;
 use SilverStripe\Security\Permission;
 use SilverStripe\Security\Security;
 
@@ -16,12 +17,12 @@ class MemberUser extends DataExtension
     /**
      * Check if the current user can modify the user
      *
+     * @param Member $member
+     *
      * @return boolean
      */
-    private function isAdmin()
+    private function isAdmin(Member $member)
     {
-        $member = Security::getCurrentUser();
-
         if ($member == null) {
             return false;
         }
@@ -38,12 +39,16 @@ class MemberUser extends DataExtension
     }
 
     /**
-     * @param $member
+     * @param Member $member
      *
      * @return bool
      */
-    public function canCreate($member)
+    public function canCreate($member = null)
     {
+        if (!$member instanceof Member) {
+            $member = Security::getCurrentUser();
+        }
+
         return $this->isAdmin($member);
     }
 
@@ -52,9 +57,13 @@ class MemberUser extends DataExtension
      *
      * @return bool
      */
-    public function canEdit($member)
+    public function canEdit($member = null)
     {
-        if ($this->owner->ID == Security::getCurrentUser()->ID) {
+        if (!$member instanceof Member) {
+            $member = Security::getCurrentUser();
+        }
+
+        if ($this->owner->ID == $member->ID) {
             return true;
         }
 
@@ -66,9 +75,17 @@ class MemberUser extends DataExtension
      *
      * @return bool
      */
-    public function canView($member)
+    public function canView($member = null)
     {
-        if ($this->owner->ID == Security::getCurrentUser()->ID) {
+        if (!$member instanceof Member) {
+            $member = Security::getCurrentUser();
+        }
+
+        if ($member === null) {
+            return false;
+        }
+
+        if ($this->owner->ID == $member->ID) {
             return true;
         }
 
@@ -80,8 +97,12 @@ class MemberUser extends DataExtension
      *
      * @return bool
      */
-    public function canDelete($member)
+    public function canDelete($member = null)
     {
+        if (!$member instanceof Member) {
+            $member = Security::getCurrentUser();
+        }
+
         return $this->isAdmin($member);
     }
 }
