@@ -1,9 +1,9 @@
 ---
 Name: zk-member-user-management
 ---
-Member:
+SilverStripe\Security\Member:
   extensions:
-    - ZkMemberUser
-Group:
+    - 'Zirak\MemberUserManagement\Extension\MemberUser'
+SilverStripe\Security\Group:
   extensions:
-    - ZkMemberGroup
+    - 'Zirak\MemberUserManagement\Extension\MemberGroup'
