@@ -1,14 +1,33 @@
 {
-    "name": "zirak/member-user-management",
-    "description": "Add non-admin users the ability to manage users through security section",
-    "type": "silverstripe-module",
-    "keywords": ["silverstripe", "permissions", "security"],
-    "license": "GPL-2",
-    "authors": [{
-        "name": "Gabriele Brosulo - Zirak",
-        "email": "gabriele.brosulo@zirak.it"
-    }],
-    "require": {
-        "silverstripe/framework": "~3.1"
+  "name": "zirak/member-user-management",
+  "description": "Add non-admin users the ability to manage users through security section",
+  "type": "silverstripe-module",
+  "keywords": [
+    "silverstripe",
+    "permissions",
+    "security"
+  ],
+  "license": "GPL-2",
+  "authors": [
+    {
+      "name": "Gabriele Brosulo - Zirak",
+      "email": "gabriele.brosulo@zirak.it"
     }
+  ],
+  "require": {
+    "silverstripe/framework": "^4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Zirak\\MemberUserManagement\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "installer-name": "member-user-management",
+    "branch-alias": {
+      "dev-master": "2.0.x-dev"
+    }
+  }
 }
