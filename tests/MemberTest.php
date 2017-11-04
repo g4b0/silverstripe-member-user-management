@@ -29,7 +29,7 @@ class MemberTest extends SapphireTest
         $this->assertFalse(Injector::inst()->get(Member::class)->canCreate($noPermission));
         $this->assertTrue(Injector::inst()->get(Member::class)->canCreate($permission));
         $this->assertFalse(Injector::inst()->get(Member::class)->canCreate($noPermission2));
-        $this->assertFalse(Injector::inst()->get(Member::class)->canCreate());
+        $this->assertFalse(Injector::inst()->get(Member::class)->canCreate(null));
     }
 
     /**
@@ -44,7 +44,7 @@ class MemberTest extends SapphireTest
         $this->assertTrue($noPermission->canEdit($noPermission));
         $this->assertTrue($noPermission->canEdit($permission));
         $this->assertFalse($noPermission->canEdit($noPermission2));
-        $this->assertFalse($noPermission->canEdit());
+        $this->assertFalse($noPermission->canEdit(null));
     }
 
     /**
@@ -59,7 +59,7 @@ class MemberTest extends SapphireTest
         $this->assertFalse($noPermission->canDelete($noPermission));
         $this->assertTrue($noPermission->canDelete($permission));
         $this->assertFalse($noPermission->canDelete($noPermission2));
-        $this->assertFalse($noPermission->canDelete());
+        $this->assertFalse($noPermission->canDelete(null));
     }
 
     /**
@@ -76,6 +76,6 @@ class MemberTest extends SapphireTest
         $this->assertTrue($toTest->canView($noPermission));
         $this->assertTrue($toTest->canView($permission));
         $this->assertFalse($toTest->canView($noPermission2));
-        $this->assertFalse($noPermission->canView());
+        $this->assertFalse($noPermission->canView(null));
     }
 }
